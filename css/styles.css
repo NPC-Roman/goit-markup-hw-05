@@ -207,6 +207,8 @@ img {
 
   display: block;
   padding: 24px 0;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail-tel:hover,
@@ -246,7 +248,7 @@ img {
   letter-spacing: 0.04em;
 
   color: var(--white-color);
-  background: var(--primary-color);
+  background-color: var(--primary-color);
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -257,11 +259,16 @@ img {
   height: 56px;
   min-width: 169px;
   margin: 0 auto;
+  
+  
+  /*transition: background-color opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);*/
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
-  background: var(--hover-color);
+  background-color: var(--hover-color);  
+  
 }
 
 .hero-background {
@@ -387,6 +394,8 @@ img {
   border-radius: 4px;
 
   color: var(--subtle-text-color);
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-link:hover,
@@ -462,7 +471,8 @@ footer .container {
 
 footer .socials-list {
   gap: 16px;
-  justify-content: start;
+  justify-content: start;  
+  transition:  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 footer .socials-link:hover,
@@ -603,6 +613,7 @@ footer .socials-link:active {
   border-radius: 50%;
 
   background-color: var(--primary-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .socials-link:hover,
@@ -623,6 +634,9 @@ footer .socials-link:active {
 .header-item {
   position: relative;
 
+  display: block;
+  padding: 24px 0;
+
   font-family: var(--primary-font);
   font-weight: 500;
   font-size: 16px;
@@ -630,14 +644,14 @@ footer .socials-link:active {
   letter-spacing: 0.02em;
 
   color: var(--dark-text-color);
-
-  display: block;
-  padding: 24px 0;
+  /*color: var(--hover-color);*/  
+ 
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-item:hover,
 .header-item:focus {
-  color: var(--hover-color);
+  color: var(--hover-color);  
 }
 
 .header-item .link {
@@ -654,18 +668,63 @@ footer .socials-link:active {
   display: block;
   width: 100%;
   height: 4px;
+  bottom: -1px;
   border-radius: 2px;
 
-  background-color: #404bbf;
+  background-color: var(--hover-color);
 
   opacity: 0;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .header-item.link:hover::after,
 .header-item.link:focus::after,
 .header-item.link:active::after {
   opacity: 1;
 }
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden; 
+}
+
+.modal {  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 408px;
+  min-height: 576px;
+  
+  
+  background-color: #fcfcfc;
+  border-radius: 4px;
+  box-shadow: 
+  0px 1px 1px 
+  rgba(0, 0, 0, 0.14), 
+  0px 1px 3px
+  rgba(0, 0, 0, 0.12),
+  0px 2px 1px
+  rgba(0, 0, 0, 0.2);
+  
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 
 /*
 transition-duration: 250ms;
@@ -673,10 +732,7 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 transition-property: background-color;
 */
 
-.test-0 {
-  position: relative;
-  overflow: hidden;
-}
+
 
 /*
 .test-0::before {
@@ -702,6 +758,11 @@ transition-property: background-color;
   transform: translateY(0);
 }
 */
+
+.test-0 {
+  position: relative;
+  overflow: hidden;
+}
 
 .test-1 {
   position: absolute;
@@ -763,38 +824,9 @@ transition-property: background-color;
   opacity: 1;
 }*/
 
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(46, 47, 66, 0.4);
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modal {
-  width: 408px;
-  height: 584px;
-  background-color: #fcfcfc;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  
 
 
-  
-}
+
 
 /*.modal-close {
   position: absolute;
@@ -816,7 +848,7 @@ transition-property: background-color;
   background-color: #404BBF;
 }
 */
-.btn-close {
+.btn-close-modal {
   position: absolute;
 
   height: 24px;
@@ -835,7 +867,7 @@ fill: #2E2F42;
 display: inline-block;
 }
 
-.btn-close:hover {
+.btn-close-modal:hover {
   fill: var(--white-color);
   background-color: var(--hover-color);
 }
