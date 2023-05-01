@@ -10,6 +10,7 @@
   --light-color: #f4f4fd; /*CLOUD*/
   --accent-color: #e7e9fc; /*CORNFLOWER*/
   --success-color: #31d0aa; /*GREEN*/
+  --modal-backgound-color: #fcfcfc; /*DAIRY*/
 }
 
 body {
@@ -259,16 +260,14 @@ img {
   height: 56px;
   min-width: 169px;
   margin: 0 auto;
-  
-  
+
   /*transition: background-color opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);*/
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
-  background-color: var(--hover-color);  
-  
+  background-color: var(--hover-color);
 }
 
 .hero-background {
@@ -395,7 +394,8 @@ img {
 
   color: var(--subtle-text-color);
 
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-link:hover,
@@ -471,8 +471,8 @@ footer .container {
 
 footer .socials-list {
   gap: 16px;
-  justify-content: start;  
-  transition:  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: start;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 footer .socials-link:hover,
@@ -516,6 +516,11 @@ footer .socials-link:active {
 
   padding: 12px 24px;
   max-width: 168px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .breadcrumbs-btn:hover,
@@ -545,6 +550,8 @@ footer .socials-link:active {
 
 .portfolio-link {
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-link:hover,
@@ -644,14 +651,14 @@ footer .socials-link:active {
   letter-spacing: 0.02em;
 
   color: var(--dark-text-color);
-  /*color: var(--hover-color);*/  
- 
+  /*color: var(--hover-color);*/
+
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-item:hover,
 .header-item:focus {
-  color: var(--hover-color);  
+  color: var(--hover-color);
 }
 
 .header-item .link {
@@ -692,16 +699,17 @@ footer .socials-link:active {
   height: 100%;
 
   background-color: rgba(46, 47, 66, 0.4);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-  visibility: hidden; 
+  visibility: hidden;
 }
 
-.modal {  
+.modal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -709,30 +717,56 @@ footer .socials-link:active {
 
   width: 408px;
   min-height: 576px;
-  
-  
-  background-color: #fcfcfc;
+
+  background-color: var(--modal-backgound-color);
   border-radius: 4px;
-  box-shadow: 
-  0px 1px 1px 
-  rgba(0, 0, 0, 0.14), 
-  0px 1px 3px
-  rgba(0, 0, 0, 0.12),
-  0px 2px 1px
-  rgba(0, 0, 0, 0.2);
-  
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.btn-modal {
+  position: absolute;
+  top: 24px;
+  right: 24px;
 
+  display: flex;
+  padding: 0;
+
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+
+  align-items: center;
+  justify-content: center;
+
+  fill: var(--dark-text-color);
+  background-color: var(--accent-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-modal:hover,
+.btn-focus:focus {
+  fill: var(--white-color);
+  background-color: var(--hover-color);
+  border: none;
+}
+
+.svg-modal {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 /*
 transition-duration: 250ms;
 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 transition-property: background-color;
 */
-
-
 
 /*
 .test-0::before {
@@ -779,8 +813,8 @@ transition-property: background-color;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-item:hover .test-1 {
-  transform: translateY(0);
+.portfolio-item:hover .test-2 {
+  transform: translateY(0%);
 }
 
 .test-2 {
@@ -793,6 +827,8 @@ transition-property: background-color;
   line-height: 24px;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+
+  transform: translateY(0%);
 }
 
 /*
@@ -824,10 +860,6 @@ transition-property: background-color;
   opacity: 1;
 }*/
 
-
-
-
-
 /*.modal-close {
   position: absolute;
   
@@ -848,26 +880,33 @@ transition-property: background-color;
   background-color: #404BBF;
 }
 */
-.btn-close-modal {
-  position: absolute;
 
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-
-  top: 24px;
-  right: 24px;  
-
-
-
-  background: #E7E9FC;
-border: 1px solid rgba(0, 0, 0, 0.1);
-fill: #2E2F42;
-
-display: inline-block;
+.test-00 {
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-close-modal:hover {
-  fill: var(--white-color);
-  background-color: var(--hover-color);
+.test-01 {
+  position: absolute;
+  top: 0;
+
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--light-color);
+
+  padding: 40px 32px;
+  background-color: var(--primary-color);
+
+  height: 100%;
+  width: 100%;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  margin: 0;
+}
+
+.portfolio-link:hover .test-01 {
+  transform: translateY(0%);
 }
