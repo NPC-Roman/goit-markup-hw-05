@@ -760,7 +760,7 @@ footer .socials-link:active {
 }
 
 .svg-modal {
-  transition: fill currentColor 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*
@@ -882,12 +882,12 @@ transition-property: background-color;
 }
 */
 
-.test-00 {
+.overlay {
   position: relative;
   overflow: hidden;
 }
 
-.test-01 {
+.popup {
   position: absolute;
   top: 0;
 
@@ -908,6 +908,7 @@ transition-property: background-color;
   margin: 0;
 }
 
-.portfolio-link:hover .test-01 {
+.portfolio-link:hover .popup,
+.portfolio-link:focus .popup {
   transform: translateY(0%);
 }
